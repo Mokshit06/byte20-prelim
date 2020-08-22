@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.min.css">
+  <title>Dashboard</title>
+</head>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('/assets/cover.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .cover {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 92vh;
+  }
+
+  .dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    backdrop-filter: blur(10px);
+    background: #46546c79;
+    border-radius: 10px;
+    padding: 2rem;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .head h1 {
+    font-weight: 500;
+    font-size: 2.1rem;
+  }
+
+  .head h3 {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: rgb(233, 233, 233);
+  }
+
+  .subhead {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .input-area {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    border-radius: 5px;
+    padding: 0.7rem;
+    color: #616d86;
+    font-size: 1.1rem;
+    border: none;
+    background: rgb(255, 255, 255);
+    margin: 0.3rem 0;
+  }
+</style>
+
+<body>
+  <%- include('partials/header.ejs') %>
+
+  <div class="cover">
+    <div></div>
+    <div class="dark">
+      <div class="card">
+        <div class="head">
+          <h1>Metro Rail Network</h1>
+          <h3>Handy-Manny Corporations</h3>
+        </div>
+        <div class="body">
+          <h2 class="subhead">
+            Enter your destination
+          </h2>
+          <div class="input-area">
+            <input type="text" placeholder="From..." name="from" id="from">
+            <input type="text" placeholder="To..." name="to" id="to">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
