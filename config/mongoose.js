@@ -9,7 +9,6 @@ const connectToDB = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-
     console.log(`Database connected on ${connection.connection.host}`);
   } catch (error) {
     console.error(error);
