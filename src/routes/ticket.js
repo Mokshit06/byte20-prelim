@@ -11,9 +11,8 @@ router.get('/', async (req, res) => {
   res.send(tickets);
 });
 
-router.get('/:scheduleId', async (req, res) => {
-  const { scheduleId } = req.params;
-  const { bookings } = req.query;
+router.get('/create', async (req, res) => {
+  const { bookings, schedule: scheduleId } = req.query;
 
   if (!mongoose.Types.ObjectId.isValid(scheduleId)) {
     return res.status(404).send({

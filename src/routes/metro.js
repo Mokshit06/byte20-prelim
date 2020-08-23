@@ -2,7 +2,6 @@ const express = require('express');
 const Schedule = require('../models/Schedule');
 const router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_API_KEY);
-const Metro = require('../models/Metro');
 
 router.get('/', async (req, res) => {
   const match = {};
@@ -46,7 +45,7 @@ router.get('/', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.MAIN_URL}/${schedule.id}?bookings=${bookings}`,
+      success_url: `${process.env.MAIN_URL}/ticket/create?schedule=${schedule.id}&bookings=${bookings}`,
       cancel_url: `${process.env.MAIN_URL}/`,
     });
 
