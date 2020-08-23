@@ -186,8 +186,8 @@
                         return resp.json()
                     })
                     .then(function(resp){
-
-                        mapRefresh(parseInt(resp.arr[1]),parseInt(resp.arr[0]))
+                        mapRefresh(resp.randomCoordinate.long,resp.randomCoordinate.lat)
+                        // mapRefresh()
                     })
             }
     </script>
