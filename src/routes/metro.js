@@ -2,6 +2,7 @@ const express = require('express');
 const Schedule = require('../models/Schedule');
 const router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_API_KEY);
+const randomLocation = require('random-location');
 
 router.get('/', async (req, res) => {
   const match = {};
@@ -10,9 +11,11 @@ router.get('/', async (req, res) => {
   if (from && to) {
     match.from = {
       $regex: from,
+      $options: 'i',
     };
     match.to = {
       $regex: to,
+      $options: 'i',
     };
   }
 
@@ -49,12 +52,15 @@ router.get('/', async (req, res) => {
       cancel_url: `${process.env.MAIN_URL}/`,
     });
 
-    const coords = {
-      latitude: Math.floor(Math.random() * (360 - 100 + 1)) + 100,
-      longitude: Math.floor(Math.random() * (180 - 60 + 1)) + 60,
-    };
+    const coords = randomLocation.randomCirclePoint(
+      {
+        latitude: -74.5,
+        longitude: 40,
+      },
+      20000000
+    );
 
-    res.send({ schedule, coords, session_id: session });
+    res.send({ schedule, coords, session_id: session.id });
   } catch (error) {
     console.log(error);
     res.status(500).send({

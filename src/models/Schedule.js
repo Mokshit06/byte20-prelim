@@ -7,16 +7,20 @@ const ScheduleSchema = new mongoose.Schema({
     ref: 'Metro',
   },
   time: {
-    type: Number,
+    type: String,
+    required: true,
   },
   from: {
     type: String,
+    required: true,
   },
   to: {
     type: String,
+    required: true,
   },
   price: {
     type: Number,
+    required: true,
   },
 });
 
