@@ -1,0 +1,53 @@
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  max-width: 350px;
+  height: 100%;
+
+  .logo-area {
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 64px;
+
+    .logo-img {
+      background-image: url('/assets/logo.jpg');
+      background-position: center;
+      background-size: cover;
+      height: 6.9rem;
+      width: 6.9rem;
+      margin: 0 auto;
+      box-shadow: 0 9px 17px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  .login-area {
+    padding: 0 1rem;
+
+    h1 {
+      font-weight: 400;
+      font-size: 1.7rem;
+    }
+
+    p {
+      margin: 0.8rem 0;
+      font-size: 0.97rem;
+      font-weight: 400;
+    }
+    .sign-in-btn {
+      padding: 1.05rem;
+      text-align: center;
+      background: #000;
+      margin-top: 2rem;
+      color: #fff;
+      display: block;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+  }
+}

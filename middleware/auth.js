@@ -2,6 +2,7 @@ const ensureGuest = (req, res, next) => {
   if (req.user) {
     return res.redirect('/dashboard');
   }
+
   next();
 };
 
@@ -10,7 +11,7 @@ const ensureAuthenticated = (req, res, next) => {
     return next();
   }
 
-  res.redirect('/');
+  res.redirect('/login');
 };
 
 module.exports = {

@@ -49,13 +49,38 @@ router.get('/', async (req, res) => {
       cancel_url: `${process.env.MAIN_URL}/`,
     });
 
-    res.send({ schedule, session_id: session });
+    const coords = {
+      latitude: Math.floor(Math.random() * (360 - 100 + 1)) + 100,
+      longitude: Math.floor(Math.random() * (180 - 60 + 1)) + 60,
+    };
+
+    res.send({ schedule, coords, session_id: session });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       error: 'Something went wrong',
     });
   }
+});
+
+//todo Remove from prod
+const Metro = require('../models/Metro');
+router.get('/create', async (req, res) => {
+  const metro = await Metro.create({
+    name: 'Metro 1',
+    image:
+      'https://res.cloudinary.com/dzqjbkm5q/image/upload/v1598107778/byte_metro/metro_qsbp6b.jpg',
+  });
+
+  const schedule = await Schedule.create({
+    metro: metro.id,
+    time: 7,
+    from: 'Delhi',
+    to: 'Noida',
+    price: 100,
+  });
+
+  res.send(schedule);
 });
 
 module.exports = router;
