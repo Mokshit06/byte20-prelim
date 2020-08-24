@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
-  <title>Document</title>
+  <title>Railr</title>
 </head>
 
 <body>
@@ -16,12 +16,12 @@
     <div class="home-grid">
       <div class="home-left">
         <h1>Book a ticket now</h1>
-        <p>Experience the best Metro Railway Network in Sheet Rock Hills. We make it sure that your exprience will be
+        <p>Experience the best Metro Railway Network in Sheet Rock Hills. We make sure that your experience will be
           unmatched, with the best hygiene, cleanliness and the ease of travel.</p>
 
         <div class="buttons">
           <a href="/dashboard" class="book-btn">Book now</a>
-          <a href="#about" class="schedule-btn">About us</a>
+          <a class="schedule-btn">About us</a>
         </div>
       </div>
       <div></div>
@@ -29,9 +29,53 @@
     <div></div>
   </section>
 
-  <section id="about"></section>
+  <section id="about">
+    <div class="info">
+      <h1>About us</h1>
+      <p>Railr in the fastest and most convenient way of travelling in Sheet Rock Hills. Good things happen when
+        people can move, whether across town or toward their dreams. Opportunities appear, open up,
+        become reality. What started as a way to tap a button to get a ride has led to billions of moments of human
+        connection
+        as people around the world go all kinds of places in all kinds of ways with the help of our technology.</p>
+    </div>
+    <div class="img"></div>
+  </section>
+
+  <section id="hygiene">
+    <div class="img"></div>
+    <div class="right">
+      <div class="info">
+        <h1>Our commitment to your hygiene</h1>
+        <p>In this time of pandemic, hygiene and cleanliness is probably the first thing you would think of while
+          travelling and we make it so that you dont have to think about it while travelling with us. Our metros are
+          cleaned and tested by WHO as the cleanest in the city. We provide the best, most hygienic and fast metros in
+          the town and that too for the cheapest
+          rates
+          possible</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="img"></div>
+    <div class="right">
+      <div class="info">
+        <h1>Work with us</h1>
+        <p>We’re building a culture within Railr that emphasizes doing the right thing, period, for riders, drivers, and
+          employees.
+          Find out more about the team that’s leading the way. It’s our goal to create a workplace that is inclusive and
+          reflects the diversity of the people we serve — where everyone
+          can be their authentic self, and where that authenticity is celebrated as a strength.</p>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer.ejs') %>
 
   <script src="/js/navbar.js"></script>
+  <script>
+    document.querySelector('.schedule-btn').addEventListener('click', () => document.querySelector('#about').scrollIntoView())
+  </script>
 </body>
 
 </html>

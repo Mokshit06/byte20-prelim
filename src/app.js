@@ -13,6 +13,7 @@ const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
 const ticketRouter = require('./routes/ticket');
 const metroRouter = require('./routes/metro');
+const { ensureAuthenticated } = require('../middleware/auth');
 
 dotenv.config();
 
@@ -53,8 +54,8 @@ app.use((req, res, next) => {
 //todo Add authentication to routes
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/ticket', ticketRouter);
-app.use('/metro', metroRouter);
+app.use('/ticket', ensureAuthenticated, ticketRouter);
+app.use('/metro', ensureAuthenticated, metroRouter);
 
 const PORT = process.env.PORT || 3000;
 

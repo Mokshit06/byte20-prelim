@@ -8,12 +8,25 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
 }
 
 a {
   text-decoration: none;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 1.6;
+  padding: 1.9rem;
+  font-size: 1.06rem;
 }
 
 @mixin button {

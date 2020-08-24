@@ -6,9 +6,16 @@ const Schedule = require('../models/Schedule');
 
 router.get('/', async (req, res) => {
   //! Change to req.user.id
-  const tickets = await Ticket.find({ user: '5f412501deeadd5d6cf85adf' });
+  const tickets = await Ticket.find({
+    user: '5f412501deeadd5d6cf85adf',
+  }).populate({
+    path: 'schedule',
+    populate: {
+      path: 'metro',
+    },
+  });
 
-  res.send(tickets);
+  res.render('tickets', { tickets });
 });
 
 router.get('/create', async (req, res) => {
