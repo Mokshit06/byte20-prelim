@@ -9,9 +9,9 @@
 
   .home-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     width: 100%;
-    padding: 0 70px;
+    padding: 0 3.6vw;
 
     .home-left {
       background: #fff;

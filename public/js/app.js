@@ -41,7 +41,6 @@ form.addEventListener('submit', async e => {
     const errorMessage = `
       <h1 class="error-message">${response.message}</h1>
     `;
-    console.log(errorMessage);
     metro.innerHTML = errorMessage;
     return;
   }
