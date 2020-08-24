@@ -1,9 +1,13 @@
 <nav>
   <div class="logo">
-    <h3>RAILR</h3>
+    <a href="/">RAILR</a>
   </div>
   <div class="nav-links">
+    <% if (user) { %>
     <a href="/dashboard">Dashboard</a>
     <a href="/auth/logout">Logout</a>
+    <% } else { %>
+    <a href="/login">Login</a>
+    <% } %>
   </div>
 </nav>

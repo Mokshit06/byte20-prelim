@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { ensureGuest, ensureAuthenticated } = require('../../middleware/auth');
 
-router.get('/', ensureAuthenticated, (req, res) => {
-  res.send('Home Page');
+router.get('/', (req, res) => {
+  res.render('index');
 });
 
 router.get('/dashboard', ensureAuthenticated, (req, res) => {

@@ -54,10 +54,10 @@ router.get('/', async (req, res) => {
 
     const coords = randomLocation.randomCirclePoint(
       {
-        latitude: -74.5,
+        latitude: 0,
         longitude: 40,
       },
-      20000000
+      8000000
     );
 
     res.send({ schedule, coords, session_id: session.id });

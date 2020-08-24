@@ -13,20 +13,22 @@
 
 </style>
 
-<body class="home-page">
+<body class="dashboard">
   <%- include('partials/header.ejs') %>
 
   <div class="map" id='map'></div>
   <div class="metro-form">
     <div class="form">
       <div class="form-header">Where do you want to go?</div>
-      <form id="search-form">
-        <input class="input" type="text" id="from" placeholder="Enter your location" required>
-        <input class="input" type="text" id="to" placeholder="Enter your destination" required>
-        <input class="input" type="number" id="bookings" placeholder="Number of bookings" required>
-        <button class="search-btn" type="submit">Search</button>
-      </form>
-      <div id="metro"></div>
+      <div class="padding">
+        <form id="search-form">
+          <input class="input" type="text" id="from" placeholder="Enter your location" required>
+          <input class="input" type="text" id="to" placeholder="Enter your destination" required>
+          <input class="input" type="number" id="bookings" placeholder="Number of bookings" required>
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+        <div id="metro"></div>
+      </div>
     </div>
   </div>
 

@@ -1,14 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-@import '_header';
-@import '_login';
 
 body {
   min-height: 100vh;
@@ -18,129 +16,20 @@ a {
   text-decoration: none;
 }
 
-.home-page {
-  height: 100vh;
-
-  .map {
-    height: 100%;
-    width: 100%;
-    position: relative;
-  }
+@mixin button {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.metro-form {
-  width: 100%;
-  height: calc(100% - 7.2vh);
-  margin-top: 7.2vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-
-  .form {
-    z-index: 100;
-    max-width: 410px;
-    height: 90%;
-    margin-left: 3%;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    pointer-events: all;
-    align-items: center;
-
-    .form-header {
-      font-size: 2.3rem;
-      font-weight: 500;
-      color: #fff;
-      background: #276ef1;
-      padding: 1.8rem 1rem;
-    }
-
-    #search-form {
-      display: flex;
-      width: 100%;
-      padding: 0 1rem;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .input {
-        margin-top: 2vh;
-        width: 100%;
-        outline: none;
-        border: none;
-        background: #f6f6f6;
-        padding: 0.9rem 1.1rem;
-        color: #757575;
-        border-bottom: 2px solid transparent;
-        transition: background 100ms ease, border 200ms ease;
-        font-size: 1.15rem;
-
-        &:focus {
-          background: #eef3fe;
-          border-bottom: 2px solid #276ef1;
-        }
-      }
-
-      .search-btn {
-        display: block;
-        padding: 1rem;
-        text-align: center;
-        width: 100%;
-        margin: 1.6rem 0;
-        font-size: 1.1rem;
-        border: none;
-        background: #000;
-        color: #fff;
-        cursor: pointer;
-      }
-    }
-
-    #metro {
-      margin: 0 1rem;
-      background: #fafafa;
-      border: 1px solid #f1f1f1;
-      height: fit-content;
-      display: flex;
-      align-items: center;
-
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 40%;
-      }
-
-      .metro-info {
-        width: 60%;
-        line-height: 1.6;
-        padding: 0.8rem;
-        color: #757575;
-
-        h1 {
-          font-weight: 600;
-          font-size: 1.6rem;
-          color: #000;
-        }
-
-        .value {
-          color: #585858;
-          font-weight: 500;
-        }
-
-        #buy-ticket {
-          padding: 0.5rem;
-          cursor: pointer;
-          background: #276ef1;
-          border: none;
-          color: #fff;
-          text-align: center;
-          margin-top: 1rem;
-        }
-      }
-    }
-  }
-}
+@import '_header';
+@import '_login';
+@import '_dashboard';
+@import '_home';

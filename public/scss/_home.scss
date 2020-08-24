@@ -1,0 +1,50 @@
+#home {
+  height: calc(100vh - 7.2vh);
+  display: flex;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  background-image: url('/assets/cover-3.jpg');
+  background-position: center;
+  background-size: cover;
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    width: 100%;
+    padding: 0 70px;
+
+    .home-left {
+      background: #fff;
+      padding: 2.4rem;
+
+      h1 {
+        font-size: 2.9rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+      }
+
+      .buttons {
+        display: flex;
+
+        .book-btn {
+          @include button();
+          padding: 0.7rem 1.3rem;
+          margin-right: 1rem;
+        }
+
+        .schedule-btn {
+          @include button();
+          padding: 0.7rem 1.3rem;
+          background: #f6f6f6;
+          color: #0f0f0f;
+        }
+      }
+    }
+  }
+}

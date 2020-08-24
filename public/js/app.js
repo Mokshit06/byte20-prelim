@@ -35,6 +35,17 @@ form.addEventListener('submit', async e => {
     `/metro?from=${from}&to=${to}&bookings=${bookings}`
   );
   const response = await responseJSON.json();
+  console.log(response);
+
+  if (response.message) {
+    const errorMessage = `
+      <h1 class="error-message">${response.message}</h1>
+    `;
+    console.log(errorMessage);
+    metro.innerHTML = errorMessage;
+    return;
+  }
+
   const {
     schedule,
     coords: { latitude, longitude },
@@ -42,6 +53,9 @@ form.addEventListener('submit', async e => {
   } = response;
 
   metro.innerHTML = createMetroCard(schedule);
+  metro.querySelector('img').style.height = `${
+    metro.querySelector('.metro-info').clientHeight
+  }px`;
 
   map.flyTo({
     center: [longitude, latitude],

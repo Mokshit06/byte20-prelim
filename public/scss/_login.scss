@@ -40,14 +40,9 @@
       font-weight: 400;
     }
     .sign-in-btn {
-      padding: 1.05rem;
-      text-align: center;
-      background: #000;
+      @include button();
       margin-top: 2rem;
-      color: #fff;
-      display: block;
       font-weight: 400;
-      font-size: 1.1rem;
     }
   }
 }

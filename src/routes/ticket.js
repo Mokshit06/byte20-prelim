@@ -38,7 +38,7 @@ router.get('/create', async (req, res) => {
 
     const ticket = await Ticket.create(newTicket);
 
-    res.status(201).json(ticket);
+    res.status(201).send(ticket);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
