@@ -83,54 +83,54 @@
         margin: 1.6rem 0;
       }
     }
+  }
+}
 
-    #metro {
-      width: 100%;
-      background: #eef3fe;
-      height: fit-content;
-      display: flex;
-      align-items: center;
+#metro {
+  width: 100%;
+  background: #eef3fe;
+  height: fit-content;
+  display: flex;
+  align-items: center;
 
-      .error-message {
-        font-weight: 400;
-        font-size: 1.3rem;
-        padding: 0.7rem 1rem;
-        color: #575757;
-      }
+  .error-message {
+    font-weight: 400;
+    font-size: 1.3rem;
+    padding: 0.7rem 1rem;
+    color: #575757;
+  }
 
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 40%;
-      }
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 40%;
+  }
 
-      .metro-info {
-        width: 60%;
-        line-height: 1.6;
-        padding: 0.8rem;
-        color: #757575;
+  .metro-info {
+    width: 60%;
+    line-height: 1.6;
+    padding: 0.8rem;
+    color: #757575;
 
-        h1 {
-          font-weight: 600;
-          font-size: 1.6rem;
-          color: #000;
-        }
+    h1 {
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: #000;
+    }
 
-        .value {
-          color: #585858;
-          font-weight: 500;
-        }
+    .value {
+      color: #585858;
+      font-weight: 500;
+    }
 
-        #buy-ticket {
-          padding: 0.5rem;
-          cursor: pointer;
-          background: #276ef1;
-          border: none;
-          color: #fff;
-          text-align: center;
-          margin-top: 1rem;
-        }
-      }
+    #buy-ticket {
+      padding: 0.5rem;
+      cursor: pointer;
+      background: #276ef1;
+      border: none;
+      color: #fff;
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 }

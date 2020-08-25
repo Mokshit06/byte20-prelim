@@ -13,14 +13,16 @@ const map = new mapboxgl.Map({
 });
 map.addControl(new mapboxgl.NavigationControl());
 
-const createMetroCard = ({ time, price, metro }) =>
+const createMetroCard = ({ time, price, metro }, bookings) =>
   `
     <img src="${metro.image}"
       alt="${metro.name}">
     <div class="metro-info">
       <h1>${metro.name}</h1>
       <div>Schedule: <span class="value">${time}</span></div>
-      <div>Price: <span class="value">₹ ${price}</span></div>
+      <div>Price: <span class="value">₹ ${
+        price * bookings
+      } </span>(₹ ${price} each)</div>
       <div id="buy-ticket">Buy Ticket</div>
     </div>
   `;
@@ -35,7 +37,6 @@ form.addEventListener('submit', async e => {
     `/metro?from=${from}&to=${to}&bookings=${bookings}`
   );
   const response = await responseJSON.json();
-  console.log(response);
 
   if (response.message) {
     const errorMessage = `
@@ -51,7 +52,7 @@ form.addEventListener('submit', async e => {
     session_id,
   } = response;
 
-  metro.innerHTML = createMetroCard(schedule);
+  metro.innerHTML = createMetroCard(schedule, bookings);
   metro.querySelector('img').style.height = `${
     metro.querySelector('.metro-info').clientHeight
   }px`;

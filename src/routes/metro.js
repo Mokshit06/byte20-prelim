@@ -69,21 +69,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-//todo Remove from prod
 const Metro = require('../models/Metro');
 router.get('/create', async (req, res) => {
-  const metro = await Metro.create({
-    name: 'Metro 1',
-    image:
-      'https://res.cloudinary.com/dzqjbkm5q/image/upload/v1598107778/byte_metro/metro_qsbp6b.jpg',
-  });
+  const { name, image, scheduleBody } = req.body;
+
+  const metro = await Metro.create({ name, image });
 
   const schedule = await Schedule.create({
     metro: metro.id,
-    time: 7,
-    from: 'Delhi',
-    to: 'Noida',
-    price: 100,
+    ...scheduleBody,
   });
 
   res.send(schedule);

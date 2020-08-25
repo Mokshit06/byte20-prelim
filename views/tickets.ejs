@@ -12,11 +12,38 @@
 
   <%- include('partials/header.ejs') %>
 
-  <% tickets.forEach(ticket => { %>
-  <p style="white-space: pre;"><%- JSON.stringify(ticket, null, 4) %></p>
-  <% }) %>
+  <h1 class="page-head">Your Tickets</h1>
+
+  <div class="grid">
+
+    <% tickets.forEach(ticket => { %>
+    <div id="metro">
+      <img src="<%= ticket.schedule.metro.image %>" alt="<%= ticket.schedule.metro.name %>">
+      <div class="metro-info">
+        <h1><%= ticket.schedule.metro.name %></h1>
+        <div>From: <span class="value"><%= ticket.schedule.from %> </span></div>
+        <div>To: <span class="value"><%= ticket.schedule.to %> </span></div>
+        <div>Bookings: <span class="value"><%= ticket.bookings %> </span></div>
+        <div>Price: <span class="value">₹ <%= ticket.schedule.price * ticket.bookings %> </span>(₹
+          <%= ticket.schedule.price %>
+          each)</div>
+        <div>Schedule: <span class="value"><%= ticket.schedule.time %> </span></div>
+      </div>
+    </div>
+    <% }) %>
+
+  </div>
 
   <script src="/js/navbar.js"></script>
+  <script>
+    const metros = document.querySelectorAll('#metro');
+
+    metros.forEach(metro => {
+      metro.querySelector('img').style.height = `${
+        metro.querySelector('.metro-info').clientHeight
+        }px`;
+    })
+  </script>
 
 </body>
 

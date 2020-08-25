@@ -51,7 +51,6 @@ app.use((req, res, next) => {
   next();
 });
 
-//todo Add authentication to routes
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/ticket', ensureAuthenticated, ticketRouter);

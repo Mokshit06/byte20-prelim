@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@font-face {
+  font-family: 'Product Sans Regular';
+  src: url('/fonts/Product_Sans_Regular.ttf');
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Product Sans Regular', sans-serif;
 }
 
 html {
@@ -14,6 +16,19 @@ html {
 
 body {
   min-height: 100vh;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #276ef1;
 }
 
 a {
@@ -46,3 +61,4 @@ footer {
 @import '_login';
 @import '_dashboard';
 @import '_home';
+@import '_ticket';

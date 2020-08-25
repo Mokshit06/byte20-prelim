@@ -5,10 +5,7 @@ const mongoose = require('mongoose');
 const Schedule = require('../models/Schedule');
 
 router.get('/', async (req, res) => {
-  //! Change to req.user.id
-  const tickets = await Ticket.find({
-    user: '5f412501deeadd5d6cf85adf',
-  }).populate({
+  const tickets = await Ticket.find({ user: req.user.id }).populate({
     path: 'schedule',
     populate: {
       path: 'metro',
@@ -37,15 +34,14 @@ router.get('/create', async (req, res) => {
     }
 
     const newTicket = {
-      //! Change to req.user.id
-      user: '5f412501deeadd5d6cf85adf',
+      user: req.user.id,
       schedule: schedule.id,
       bookings,
     };
 
     const ticket = await Ticket.create(newTicket);
 
-    res.status(201).send(ticket);
+    res.redirect('/ticket');
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
