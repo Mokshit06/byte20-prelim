@@ -2,7 +2,7 @@
   height: 100vh;
 
   #map {
-    height: calc(100% - 7.6vh);
+    min-height: calc(100% - 7.6vh);
     width: 100%;
   }
 }
@@ -13,7 +13,7 @@
 
 .metro-form {
   width: 100%;
-  height: calc(100% - 7.2vh);
+  min-height: calc(100% - 7.2vh);
   margin-top: 7.2vh;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@
 
   .form {
     max-width: 410px;
-    height: 90%;
+    min-height: 90%;
     margin-left: 3%;
     background-color: #fff;
     display: flex;

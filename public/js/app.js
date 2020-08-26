@@ -11,7 +11,21 @@ const map = new mapboxgl.Map({
   style: 'mapbox://styles/mokshit06/cke7d1cu73yon19og3kxseglc',
   zoom: 1,
 });
-map.addControl(new mapboxgl.NavigationControl());
+
+let width = window.innerWidth;
+const navigation = new mapboxgl.NavigationControl();
+
+if (window.innerWidth > 800) {
+  map.addControl(navigation);
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 800) {
+    map.addControl(navigation);
+  } else {
+    map.removeControl(navigation);
+  }
+});
 
 const createMetroCard = ({ time, price, metro }, bookings) =>
   `
