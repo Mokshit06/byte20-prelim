@@ -17,6 +17,7 @@
 
   <div class="grid">
 
+    <% if (tickets.length > 1) { %>
     <% tickets.forEach(ticket => { %>
     <div id="metro">
       <img src="<%= ticket.schedule.metro.image %>" alt="<%= ticket.schedule.metro.name %>">
@@ -32,6 +33,9 @@
       </div>
     </div>
     <% }) %>
+    <% } else { %>
+    <p style="font-size: 1.3rem; font-weight: 300; color: #565656">You haven't booked any trains yet</p>
+    <% } %>
 
   </div>
 

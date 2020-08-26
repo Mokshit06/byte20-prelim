@@ -78,13 +78,25 @@ router.get('/', ensureAuthenticated, async (req, res) => {
 
 // todo Remove from prod
 const Metro = require('../models/Metro');
-router.get('/create', async (req, res) => {
+router.post('/create', async (req, res) => {
   const { name, image, scheduleBody } = req.body;
 
   const metro = await Metro.create({ name, image });
 
   const schedule = await Schedule.create({
     metro: metro.id,
+    ...scheduleBody,
+  });
+
+  res.send(schedule);
+});
+
+router.post('/create-schedule', async (req, res) => {
+  const { metro } = req.query;
+  const { schedule: scheduleBody } = req.body;
+
+  const schedule = await Schedule.create({
+    metro,
     ...scheduleBody,
   });
 
