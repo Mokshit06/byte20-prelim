@@ -1,8 +1,8 @@
 .dashboard {
-  height: 100vh;
+  min-height: 100vh;
 
   #map {
-    min-height: calc(100% - 7.6vh);
+    min-height: calc(100vh - 7.6vh);
     width: 100%;
   }
 }
@@ -13,7 +13,7 @@
 
 .metro-form {
   width: 100%;
-  min-height: calc(100% - 7.2vh);
+  min-height: calc(100vh - 7.2vh);
   margin-top: 7.2vh;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@
 
   .form {
     max-width: 410px;
-    min-height: 90%;
+    min-height: 83vh;
     margin-left: 3%;
     background-color: #fff;
     display: flex;
