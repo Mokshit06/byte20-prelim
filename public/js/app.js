@@ -33,12 +33,20 @@ form.addEventListener('submit', async e => {
   const to = document.querySelector('#to').value;
   const bookings = document.querySelector('#bookings').value;
 
+  if (bookings < 1) {
+    const errorMessage = `
+      <h1 class="error-message">Bookings should be greater than 0</h1>
+    `;
+    metro.innerHTML = errorMessage;
+    return;
+  }
+
   const responseJSON = await fetch(
     `/metro?from=${from}&to=${to}&bookings=${bookings}`
   );
   const response = await responseJSON.json();
 
-  if (response.message) {
+  if (response.message && response.message.includes('Schedule')) {
     const errorMessage = `
       <h1 class="error-message">${response.message}</h1>
     `;

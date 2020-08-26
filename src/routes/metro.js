@@ -8,6 +8,12 @@ router.get('/', async (req, res) => {
   const match = {};
   const { from, to, bookings = 1 } = req.query;
 
+  if (bookings < 1) {
+    return res.status(400).send({
+      message: 'Bookings should be greater than 1',
+    });
+  }
+
   if (from && to) {
     match.from = {
       $regex: from,
@@ -57,7 +63,7 @@ router.get('/', async (req, res) => {
         latitude: 0,
         longitude: 40,
       },
-      8000000
+      7000000
     );
 
     res.send({ schedule, coords, session_id: session.id });
@@ -69,6 +75,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// todo Remove from prod
 const Metro = require('../models/Metro');
 router.get('/create', async (req, res) => {
   const { name, image, scheduleBody } = req.body;
