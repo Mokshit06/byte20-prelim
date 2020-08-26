@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/ticket', ensureAuthenticated, ticketRouter);
-app.use('/metro', ensureAuthenticated, metroRouter);
+app.use('/metro', metroRouter);
 
 const PORT = process.env.PORT || 3000;
 

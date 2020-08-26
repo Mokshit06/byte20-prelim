@@ -2,9 +2,10 @@ const express = require('express');
 const Schedule = require('../models/Schedule');
 const router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_API_KEY);
+const { ensureAuthenticated } = require('../../middleware/auth');
 const randomLocation = require('random-location');
 
-router.get('/', async (req, res) => {
+router.get('/', ensureAuthenticated, async (req, res) => {
   const match = {};
   const { from, to, bookings = 1 } = req.query;
 
